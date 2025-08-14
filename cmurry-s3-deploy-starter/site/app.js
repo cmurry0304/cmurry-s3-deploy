@@ -1,0 +1,1 @@
+document.getElementById('status').innerText = 'Build: OK — Served from S3 ✅';

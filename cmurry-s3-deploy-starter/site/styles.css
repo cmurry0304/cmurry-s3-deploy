@@ -1,0 +1,7 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color: #111; background:#f7f7f7; }
+header { background: #111827; color: white; padding: 16px 24px; }
+nav a { color: #93c5fd; margin-right: 10px; text-decoration: none; }
+main { padding: 24px; }
+footer { padding: 16px 24px; color:#444; }
+#status { margin-top: 16px; padding: 12px; background: #e5f9e7; border: 1px solid #b3e5be; border-radius: 6px; }
