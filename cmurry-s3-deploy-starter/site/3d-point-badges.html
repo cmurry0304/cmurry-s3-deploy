@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3 & D Point — Achievable Badge Upgrades</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B0D10; --panel:#14181D; --line:#242A32;
+    --dim:#7C8794; --text:#E8ECF1;
+    --bronze:#C4763A; --silver:#AFBAC6; --gold:#E8B429; --hof:#E4479C; --none:#4A535E;
+    --finishing:#3D7DD8; --shooting:#3FAE6A; --playmaking:#E08A2E;
+    --defense:#D4453F; --rebounding:#8B6FD4; --physicals:#C9B44A;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ink);color:var(--text);
+    font-family:'Barlow Condensed',system-ui,sans-serif;font-size:17px;line-height:1.35;
+    padding:20px 14px 60px}
+  .wrap{max-width:780px;margin:0 auto}
+
+  .sitenav{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;margin-bottom:14px}
+  .sitenav a{color:var(--dim);text-decoration:none;margin-right:14px}
+  .sitenav a:hover{color:var(--text)}
+
+  header{border-bottom:2px solid var(--line);padding-bottom:16px;margin-bottom:8px}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--dim)}
+  h1{font-size:33px;font-weight:700;margin:6px 0 8px;text-transform:uppercase;line-height:1.05}
+  .sub{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--dim)}
+  .legend{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+  .chip{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;padding:4px 9px;border-radius:2px;font-weight:600;white-space:nowrap}
+  .t-none{background:var(--none);color:#C6CDD5}
+  .t-bronze{background:var(--bronze);color:#1A0E05}
+  .t-silver{background:var(--silver);color:#12171C}
+  .t-gold{background:var(--gold);color:#1A1300}
+  .t-hof{background:var(--hof);color:#25000F}
+
+  .callout{background:linear-gradient(135deg,#2A1620,#14181D);border:1px solid var(--hof);
+    border-radius:5px;padding:16px;margin:22px 0}
+  .callout h3{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;margin:0 0 8px;color:var(--hof)}
+  .callout p{margin:0 0 8px;font-size:17px}
+  .callout p:last-child{margin-bottom:0}
+  .callout b{color:var(--text)}
+
+  h2{font-size:15px;font-family:'IBM Plex Mono',monospace;font-weight:600;
+    letter-spacing:.16em;text-transform:uppercase;margin:32px 0 10px;
+    padding-left:10px;border-left:4px solid var(--c)}
+  h2 em{font-style:normal;color:var(--dim);letter-spacing:.08em;font-size:11px}
+
+  .row{background:var(--panel);border-left:3px solid var(--c);border-radius:3px;
+    padding:11px 13px;margin-bottom:6px}
+  .top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+  .name{font-size:20px;font-weight:600}
+  .cost{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--dim);
+    letter-spacing:.08em;white-space:nowrap}
+  .cost b{font-size:20px;color:var(--text);font-weight:600}
+  .step{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:8px}
+  .arrow{color:var(--dim);font-size:13px}
+  .req{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--dim);margin-left:2px}
+  .req b{color:#B9C4D0;font-weight:500}
+  .step2{margin-top:7px;padding-top:7px;border-top:1px dashed var(--line)}
+  .free{color:var(--gold);font-size:10px;font-family:'IBM Plex Mono',monospace;
+    letter-spacing:.08em;margin-left:4px}
+
+  .plan{background:var(--panel);border:1px solid var(--line);border-radius:4px;
+    padding:16px;margin-top:36px}
+  .plan h3{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.14em;
+    text-transform:uppercase;margin:0 0 12px;color:var(--gold)}
+  ol{margin:0;padding-left:20px}
+  ol li{margin-bottom:7px;font-size:17px}
+  ol li b{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600}
+  .note{font-size:15px;color:var(--dim);margin-top:16px;padding-top:14px;
+    border-top:1px solid var(--line);line-height:1.5}
+  .note b{color:var(--text)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav class="sitenav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+</nav>
+
+<header>
+  <div class="eyebrow">NBA 2K27 · Cap Breaker Plan</div>
+  <h1>3 & D Point</h1>
+  <div class="sub">PG · 6'4" · 221 LBS · 6'9" WS · LOCKED SLOTS + HEIGHT-GATED BADGES EXCLUDED</div>
+  <div class="legend">
+    <span class="chip t-none">Not earned</span>
+    <span class="chip t-bronze">Bronze</span>
+    <span class="chip t-silver">Silver</span>
+    <span class="chip t-gold">Gold</span>
+    <span class="chip t-hof">Hall of Fame</span>
+  </div>
+</header>
+
+<div class="callout">
+  <h3>Standouts in this build</h3>
+  <p><b>Cheapest badge in the whole build:</b> one Agility breaker (87→88) flips
+  <b>Pick Dodger from Silver to Gold</b> — your Perimeter D is already high enough,
+  Agility was the only thing holding it back.</p>
+  <p>A 2nd Agility breaker (→89) also clears <b>Ankle Braces Gold</b>. Two breakers,
+  two Gold badges.</p>
+  <p>Your 93 Perimeter D and 90 Steal are already carrying badges for free — <b>Challenger
+  Gold, Off-Ball Pest HOF, Immovable Enforcer Gold, and Interceptor Gold</b> all came with
+  zero breakers spent. This build's defense is largely paid for already; Agility and Post
+  Control are where the cheap points are left.</p>
+  <p>One Post Control breaker (50→60) triggers <b>three</b> Bronze badges at once —
+  Hook Specialist, Post Powerhouse, and Post Fade Phenom.</p>
+</div>
+
+<h2 style="--c:var(--finishing)">Finishing <em>8 upgrades</em></h2>
+
+<div class="row" style="--c:var(--finishing)">
+  <div class="top"><span class="name">Layup Mixmaster</span><span class="cost"><b>1</b> breaker</span></div>
+  <div class="step"><span class="chip t-bronze">Bronze</span><span class="arrow">→</span><span class="chip t-silver">Silver</span>
+    <span class="req">Driving Layup <b>82 → 84</b></span></div>
+</div>
+
+<div class="row" style="--c:var(--finishing)">
+  <div class="top"><span class="name">Hook Specialist</span><span class="cost"><b>1</b> breaker</span></div>
+  <div class="step"><span class="chip t-none">None</span><span class="arrow">→</span><span class="chip t-bronze">Bronze</span>
+    <span class="req">Post Control <b>50 → 60</b></span></div>
+  <div class="step step2"><span class="chip t-bronze">Bronze</span><span class="arrow">→</span><span class="chip t-silver">Silver</span>
+    <span class="req"><b>4 total</b> · Close Shot → 77, Post Control → 68</span></div>
+</div>
+
+<div class="row" style="--c:var(--finishing)">
+  <div class="top"><span class="name">Post Powerhouse</span><span class="cost"><b>1</b> breaker</span></div>
+  <div class="step"><span class="chip t-none">None</span><span class="arrow">→</span><span class="chip t-bronze">Bronze</span>
+    <span class="req">Post Control <b>50 → 60</b> · same breaker as Hook Specialist</span></div>
+  <div class="step step2"><span class="chip t-bronze">Bronze</span><span class="arrow">→</span><span class="chip t-silver">Silver</span>
+    <span class="req"><b>4 total</b> · Post Control → 80</span></div>
+</div>
+
+<div class="row" style="--c:var(--finishing)">
+  <div class="top"><span class="name">Float Game</span><span class="cost"><b>2</b> breakers</span></div>
+  <div class="step"><span class="chip t-bronze">Bronze</span><span class="arrow">→</span><span class="chip t-silver">Silver</span>
+    <span class="req">Driving Layup <b>82 → 85</b> · maxes the attribute</span></div>
+</div>
+
+<div class="row" style="--c:var(--finishing)">
+  <div class="top"><span class="name">Ghost Stepper</span><span class="cost"><b>2</b> breakers</span></div>
+  <div class="step"><span class="chip t-bronze">Bronze</span><span class="arrow">→</span><span class="chip t-silver">Silver</span>
+    <span class="req">Close Shot <b>70 → 77</b></span></div>
+  <div class="step step2"><span class="chip t-silver">Silver</span><span class="arrow">→</span><span class="chip t-gold">Gold</span>
+    <span class="req"><b>9 total</b> · Close Shot → 86, Post Control → 80 — expensive but reachable</span></div>
+</div>
+
+<div class="row" style="--c:var(--finishing)">
+  <div class="top"><span class="name">Post Spin Catalyst</span><span class="cost"><b>2</b> breakers</span></div>
+  <div class="step"><span class="chip t-none">None</span><span class="arrow">→</span><span class="chip t-bronze">Bronze</span>
+    <span class="req">Post Control <b>50 → 68</b></span></div>
+  <div class="step step2"><span class="chip t-bronze">Bronze</span><span class="arrow">→</span><span class="chip t-silver">Silver</span>
+    <span class="req"><b>5 total</b> · Post Control → 85, maxes the attribute</span></div>
+</div>
+
+<div class="row" style="--c:var(--finishing)">
+  <div class="top"><span class="name">Aerial Wizard</span><span class="cost"><b>3</b> breakers</span></div>
+  <div class="step"><span class="chip t-gold">Gold <span class="free">already earned</span></span><span class="arrow">→</span><span class="chip t-hof">Hall of Fame</span>
+    <span class="req">Driving Dunk <b>84 → 95</b></span></div>
+</div>
+
+<div class="row" style="--c:var(--finishing)">
+  <div class="top"><span class="name">Paint Prodigy</span><span class="cost"><b>5</b> breakers</span></div>
+  <div class="step"><span class="chip t-bronze">Bronze</span><span class="arrow">→</span><span class="chip t-silver">Silver</span>
+    <span class="req">Close Shot <b>70 → 86</b> · maxes the attribute</span></div>
+</div>
+
+<h2 style="--c:var(--shooting)">Shooting <em>5 upgrades</em></h2>
+
+<div class="row" style="--c:var(--shooting)">
+  <div class="top"><span class="name">Post Fade Phenom</span><span class="cost"><b>1</b> breaker</span></div>
+  <div class="step"><span class="chip t-none">None</span><span class="arrow">→</span><span class="chip t-bronze">Bronze</span>
+    <span class="req">Post Control <b>50 → 60</b> · same breaker as the two above</span></div>
+  <div class="step step2"><span class="chip t-bronze">Bronze</span><span class="arrow">→</span><span class="chip t-silver">Silver</span>
+    <span class="req"><b>3 total</b> · Post Control → 74</span></div>
+</div>
+
+<div class="row" style="--c:var(--shooting)">
+  <div class="top"><span class="name">Quick Trigger</span><span class="cost"><b>2</b> breakers</span></div>
+  <div class="step"><span class="chip t-bronze">Bronze</span><span class="arrow">→</span><span class="chip t-silver">Silver</span>
+    <span class="req">Three-Point <b>86 → 88</b></span></div>
+</div>
+
+<div class="row" style="--c:var(--shooting)">
+  <div class="top"><span class="name">Limitless Range</span><span class="cost"><b>3</b> breakers</span></div>
+  <div class="step"><span class="chip t-bronze">Bronze</span><span class="arrow">→</span><span class="chip t-silver">Silver</span>
+    <span class="req">Three-Point <b>86 → 89</b></span></div>
+</div>
+
+<div class="row" style="--c:var(--shooting)">
+  <div class="top"><span class="name">Set and Fire</span><span class="cost"><b>3</b> breakers</span></div>
+  <div class="step"><span class="chip t-silver">Silver <span class="free">already earned</span></span><span class="arrow">→</span><span class="chip t-gold">Gold</span>
+    <span class="req">Three-Point <b>86 → 89</b> · same breakers as Limitless Range Silver</span></div>
+</div>
+
+<div class="row" style="--c:var(--shooting)">
+  <div class="top"><span class="name">Static Middy</span><span class="cost"><b>4</b> breakers</span></div>
+  <div class="step"><span class="chip t-silver">Silver <span class="free">already earned</span></span><span class="arrow">→</span><span class="chip t-gold">Gold</span>
+    <span class="req">Mid-Range <b>81 → 85</b></span></div>
+</div>
+
+<h2 style="--c:var(--playmaking)">Playmaking <em>4 upgrades</em></h2>
+
+<div class="row" style="--c:var(--playmaking)">
+  <div class="top"><span class="name">Dimer</span><span class="cost"><b>4</b> breakers</span></div>
+  <div class="step"><span class="chip t-silver">Silver <span class="free">already earned</span></span><span class="arrow">→</span><span class="chip t-gold">Gold</span>
+    <span class="req">Pass Accuracy <b>80 → 86</b></span></div>
+</div>
+
+<div class="row" style="--c:var(--playmaking)">
+  <div class="top"><span class="name">Ankle Assassin</span><span class="cost"><b>4</b> breakers</span></div>
+  <div class="step"><span class="chip t-bronze">Bronze</span><span class="arrow">→</span><span class="chip t-silver">Silver</span>
+    <span class="req">Ball Handle <b>82 → 86</b></span></div>
+</div>
+
+<div class="row" style="--c:var(--playmaking)">
+  <div class="top"><span class="name">Bail Out</span><span class="cost"><b>3</b> breakers</span></div>
+  <div class="step"><span class="chip t-none">None</span><span class="arrow">→</span><span class="chip t-bronze">Bronze</span>
+    <span class="req">Pass Accuracy <b>80 → 85</b></span></div>
+</div>
+
+<div class="row" style="--c:var(--playmaking)">
+  <div class="top"><span class="name">Lightning Launch</span><span class="cost"><b>5</b> breakers</span></div>
+  <div class="step"><span class="chip t-silver">Silver <span class="free">already earned</span></span><span class="arrow">→</span><span class="chip t-gold">Gold</span>
+    <span class="req">Speed With Ball <b>81 → 86</b> · maxes the attribute</span></div>
+</div>
+
+<h2 style="--c:var(--defense)">Defense <em>5 upgrades</em></h2>
+
+<div class="row" style="--c:var(--defense)">
+  <div class="top"><span class="name">Pick Dodger</span><span class="cost"><b>1</b> breaker</span></div>
+  <div class="step"><span class="chip t-silver">Silver <span class="free">already earned</span></span><span class="arrow">→</span><span class="chip t-gold">Gold</span>
+    <span class="req">Agility <b>87 → 88</b> — cheapest badge in the build</span></div>
+  <div class="step step2"><span class="chip t-gold">Gold</span><span class="arrow">→</span><span class="chip t-hof">Hall of Fame</span>
+    <span class="req"><b>8 total</b> · Perimeter D → 97 (4), Agility → 91 (4)</span></div>
+</div>
+
+<div class="row" style="--c:var(--defense)">
+  <div class="top"><span class="name">Ankle Braces</span><span class="cost"><b>2</b> breakers</span></div>
+  <div class="step"><span class="chip t-silver">Silver <span class="free">already earned</span></span><span class="arrow">→</span><span class="chip t-gold">Gold</span>
+    <span class="req">Agility <b>87 → 89</b> · overlaps Pick Dodger's Gold breaker</span></div>
+  <div class="step step2"><span class="chip t-gold">Gold</span><span class="arrow">→</span><span class="chip t-hof">Hall of Fame</span>
+    <span class="req"><b>7 total</b> · Perimeter D → 95 (2), Agility → 92 (5)</span></div>
+</div>
+
+<div class="row" style="--c:var(--defense)">
+  <div class="top"><span class="name">Glove</span><span class="cost"><b>3</b> breakers</span></div>
+  <div class="step"><span class="chip t-silver">Silver <span class="free">already earned</span></span><span class="arrow">→</span><span class="chip t-gold">Gold</span>
+    <span class="req">Steal <b>90 → 93</b></span></div>
+</div>
+
+<div class="row" style="--c:var(--defense)">
+  <div class="top"><span class="name">High-Flying Denier</span><span class="cost"><b>3</b> breakers</span></div>
+  <div class="step"><span class="chip t-none">None</span><span class="arrow">→</span><span class="chip t-bronze">Bronze</span>
+    <span class="req">Block <b>45 → 69</b> · maxes the attribute, Vertical already clears it</span></div>
+</div>
+
+<div class="row" style="--c:var(--defense)">
+  <div class="top"><span class="name">Challenger</span><span class="cost"><b>5</b> breakers</span></div>
+  <div class="step"><span class="chip t-gold">Gold <span class="free">already earned</span></span><span class="arrow">→</span><span class="chip t-hof">Hall of Fame</span>
+    <span class="req">Perimeter D <b>93 → 98</b> · maxes the attribute</span></div>
+</div>
+
+<h2 style="--c:var(--rebounding)">Rebounding <em>5 upgrades</em></h2>
+
+<div class="row" style="--c:var(--rebounding)">
+  <div class="top"><span class="name">Boxout Boss</span><span class="cost"><b>2</b> breakers</span></div>
+  <div class="step"><span class="chip t-none">None</span><span class="arrow">→</span><span class="chip t-bronze">Bronze</span>
+    <span class="req">Def. Rebound <b>55 → 69</b> · Strength already clears it</span></div>
+  <div class="step step2"><span class="chip t-bronze">Bronze</span><span class="arrow">→</span><span class="chip t-silver">Silver</span>
+    <span class="req"><b>3 total</b> · Def. Rebound → 75</span></div>
+</div>
+
+<div class="row" style="--c:var(--rebounding)">
+  <div class="top"><span class="name">Possession Closer</span><span class="cost"><b>2</b> breakers</span></div>
+  <div class="step"><span class="chip t-none">None</span><span class="arrow">→</span><span class="chip t-bronze">Bronze</span>
+    <span class="req">Def. Rebound <b>55 → 69</b> · same breakers as Boxout Boss, Vertical already clears it</span></div>
+</div>
+
+<div class="row" style="--c:var(--rebounding)">
+  <div class="top"><span class="name">Crasher</span><span class="cost"><b>2</b> breakers</span></div>
+  <div class="step"><span class="chip t-none">None</span><span class="arrow">→</span><span class="chip t-bronze">Bronze</span>
+    <span class="req">Off. Rebound <b>42 → 64</b> · Vertical already clears it</span></div>
+</div>
+
+<div class="row" style="--c:var(--rebounding)">
+  <div class="top"><span class="name">Breaker</span><span class="cost"><b>3</b> breakers</span></div>
+  <div class="step"><span class="chip t-none">None</span><span class="arrow">→</span><span class="chip t-bronze">Bronze</span>
+    <span class="req">Off. Rebound <b>42 → 72</b> · Strength already clears it</span></div>
+</div>
+
+<div class="row" style="--c:var(--rebounding)">
+  <div class="top"><span class="name">Sync Snatcher</span><span class="cost"><b>3</b> breakers</span></div>
+  <div class="step"><span class="chip t-bronze">Bronze <span class="free">already earned</span></span><span class="arrow">→</span><span class="chip t-silver">Silver</span>
+    <span class="req">Def. Rebound <b>55 → 75</b> or Off. Rebound → 72</span></div>
+</div>
+
+<h2 style="--c:var(--physicals)">Physicals <em>1 upgrade</em></h2>
+
+<div class="row" style="--c:var(--physicals)">
+  <div class="top"><span class="name">Pogo Stick</span><span class="cost"><b>2</b> breakers</span></div>
+  <div class="step"><span class="chip t-silver">Silver <span class="free">already earned</span></span><span class="arrow">→</span><span class="chip t-gold">Gold</span>
+    <span class="req">Vertical <b>76 → 82</b></span></div>
+</div>
+
+<div class="plan">
+  <h3>Spending order — first 15</h3>
+  <ol>
+    <li><b>1</b> — Agility → 88 · <b>Pick Dodger Gold</b></li>
+    <li><b>2</b> — Agility → 89 · <b>Ankle Braces Gold</b></li>
+    <li><b>3</b> — Post Control → 60 · <b>Hook Specialist + Post Powerhouse + Post Fade Phenom Bronze</b></li>
+    <li><b>4–5</b> — Driving Layup → 85 · <b>Layup Mixmaster Silver + Float Game Silver</b></li>
+    <li><b>6–7</b> — Def. Rebound → 69 · <b>Boxout Boss + Possession Closer Bronze</b></li>
+    <li><b>8–9</b> — Three-Point → 89 · <b>Limitless Range Silver + Set and Fire Gold</b></li>
+    <li><b>10–12</b> — Steal → 93 · <b>Glove Gold</b></li>
+    <li><b>13–15</b> — Driving Dunk → 95 · <b>Aerial Wizard Hall of Fame</b></li>
+  </ol>
+  <div class="note">
+    <b>15 breakers, 12 badge upgrades</b> — and two of them (Pick Dodger, Ankle Braces) land
+    on breaker #1 and #2 alone. That's the best opening move available across either of your
+    builds so far.<br><br>
+    Strength is fully locked at 85 in this build (zero unlocked slots), which quietly caps
+    Post Powerhouse and a few Strength-paired badges below Gold no matter what else you spend —
+    worth knowing before you sink points chasing them.
+  </div>
+</div>
+
+</div>
+</body>
+</html>
